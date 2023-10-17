@@ -62,7 +62,7 @@ const getAnswer = () => {
     fetchAnswer();
 };
 
-const hanleKeyEnter = e => {
+const handleKeyEnter = e => {
     if (e.keyCode === 13) {
         getAnswer();
     }
