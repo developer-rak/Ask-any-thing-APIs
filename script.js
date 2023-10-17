@@ -27,14 +27,14 @@ const cleanResponse = () => {
         inputSelector.value = '';
         setIsRequestInProgress(false);
         setDisableButtonState(false);
-    }, 3000);
+    }, 5000);
 };
 
 const showAnswer = answer => {
     setTimeout(() => {
         answerSelector.innerHTML = `<img src=\"${answer}\" width=\"600px\" height=\"400px\">`;
         cleanResponse();
-    }, 3000);
+    }, 5000);
 };
 
 const fetchAnswer = () => {
@@ -52,7 +52,7 @@ const showError = () => {
 
     setTimeout(() => {
         errorSelector.innerHTML = '';
-    }, 3000);
+    }, 5000);
 };
 
 const getAnswer = () => {
