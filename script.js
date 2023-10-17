@@ -37,4 +37,35 @@ const showAnswer = answer => {
     }, 3000);
 };
 
-const
+const fetchAnswer = () => {
+    setIsRequestInProgress(true);
+
+    setDisableButtonState(true);
+
+    fetch(API_ENDPOINT)
+        .then(data => data.json())
+        .then(data => showAnswer(data.image));
+};
+
+const showError = () => {
+    errorSelector.innerHTML = 'Write Something First ...';
+
+    setTimeout(() => {
+        errorSelector.innerHTML = '';
+    }, 3000);
+};
+
+const getAnswer = () => {
+    if (isRequestInProgress) return;
+    if (!inputSelector.value) return showError();
+
+    fetchAnswer();
+};
+
+const hanleKeyEnter = e => {
+    if (e.keyCode === 13) {
+        getAnswer();
+    }
+};
+
+buttonSelector.addEventListener('click', getAnswer);
